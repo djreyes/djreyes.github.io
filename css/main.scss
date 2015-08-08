@@ -3,47 +3,27 @@
 ---
 @charset "utf-8";
 
-
-
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$font-family-base: 'Helvetica Light', Helvetica, Arial, sans-serif;
+$font-size-base: 18px;
+$line-height-base: 1.5;
 
-$spacing-unit:     30px;
+// installed bootstrap per http://kvurd.com/blog/my-jekyll-blog-setup-bootstrap-sass-pygments/
+@import 'bootstrap';
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Using media queries with like this:
-// @include media-query($palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+h1 {
+  font-family: Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-weight: bold;
+  font-size: 48px;
+  margin: 0;
 }
 
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
 
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+  display: flex;
+  align-items: center;
+}
