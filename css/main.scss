@@ -26,12 +26,8 @@ h1 {
 }
 
 @media (min-width: $screen-md-min) {
-  .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-
-    display: flex;
-    align-items: center;
+  body {
+    margin-top: 150px;
   }
 
   .left-border {
