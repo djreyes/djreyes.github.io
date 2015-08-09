@@ -21,15 +21,21 @@ h1 {
   margin: 0;
 }
 
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
+.left-border {
+  padding: 30px;
 }
 
-.left-border {
-  border-left: 1px solid gray;
-  padding: 30px;
+@media (min-width: $screen-md-min) {
+  .vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    align-items: center;
+  }
+
+  .left-border {
+    border-left: 1px solid gray;
+    padding: 30px;
+  }
 }
