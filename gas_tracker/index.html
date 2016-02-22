@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Gas Tracker</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" media="(device-height: 568px)">
+    <!-- Bootstrap -->
+    <link href="/css/main.css" rel="stylesheet" media="screen">
+    <link rel='apple-touch-icon' href='assets/images/gas_tracker.png'>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row col-xs-12'>
+        <h1>Gas Tracker</h1>
+      </div>
+
+      <div class='row'>
+        <div class='col-xs-12'>
+          <form class='form-horizontal' action="https://docs.google.com/spreadsheet/formResponse?formkey=dGNmNGI5TGJIRE4yelRkR0hzQXBYSnc6MQ&amp;ifq" method="POST">
+
+              <div class='form-group hidden'>
+                <label class="col-xs-6 control-label ss-q-title" for="entry_784729159">Usage Type</label>
+                <label>
+                  <input type="radio" name="entry.1000000" checked value="Fill Tank" id="group_1000000_2"> Fill Tank
+                </label>
+              </div>
+
+              <div class='form-group'>
+                <label class="col-xs-4 control-label ss-q-title" for="entry_5">Tank Level</label>
+                <div class="col-xs-8">
+                  <select class='form-control' name="entry.1000004" id="entry_1000004"><option value="1/8th">1/8th</option> <option value="1/4th">1/4th</option> <option value="3/8th">3/8th</option> <option value="Half">Half</option> <option value="5/8th">5/8th</option> <option value="3/4th">3/4th</option> <option value="7/8th">7/8th</option> <option value="Full">Full</option></select>
+                </div>
+              </div>
+
+              <div class='form-group'>
+                <label class="col-xs-4 control-label ss-q-title" for="entry_1000002">Odometer<span class="ss-required-asterisk">*</span></label>
+                <div class="col-xs-8">
+                  <input type="tel" name="entry.1000002" value="" class="form-control" id="entry_1000002">
+                </div>
+              </div>
+
+              <div class='form-group'>
+                <label class="col-xs-4 control-label ss-q-title" for="entry_1000003">Trip Meter</label>
+                <div class="col-xs-8">
+                  <input type="tel" step='any' onkeyup='convertToDecimal(this, 1)' name="entry.1000003" value="" class="form-control" id="entry_1000003">
+                </div>
+              </div>
+
+              <div class='form-group'>
+                <label class="col-xs-4 control-label ss-q-title" for="entry_1000007">Cost<span class="ss-required-asterisk">*</span></label>
+                <div class="col-xs-8">
+                  <input type="tel" step='any' onkeyup='convertToDecimal(this, 2)' name="entry.1000007" value="" class="form-control" id="entry_1000007">
+                </div>
+              </div>
+
+              <div class='form-group'>
+                <label class="col-xs-4 control-label ss-q-title" for="entry_1000008">Gallons<span class="ss-required-asterisk">*</span></label>
+                <div class="col-xs-8">
+                  <input type="tel" step='any' onkeyup='convertToDecimal(this, 3)' name="entry.1000008" value="" class="form-control" id="entry_1000008">
+                </div>
+              </div>
+
+              <div class='location hidden'>
+                <div class='form-group'>
+                  <label class="col-xs-4 control-label ss-q-title" for="entry_1000009">Latitude</label>
+                  <div class="col-xs-8">
+                    <input type="text" step='any' name="entry.1000009" value="" class="form-control latitude" id="entry_1000009">
+                  </div>
+                </div>
+
+                <div class='form-group'>
+                  <label class="col-xs-4 control-label ss-q-title" for="entry_1000010">Longitude</label>
+                  <div class="col-xs-8">
+                    <input type="text" step='any' name="entry.1000010" value="" class="form-control longitude" id="entry_1000010">
+                  </div>
+                </div>
+
+                <div class='form-group'>
+                  <label class="col-xs-4 control-label ss-q-title" for="entry_1000011">Accuracy</label>
+                  <div class="col-xs-8">
+                    <input type="text" step='any' name="entry.1000011" value="" class="form-control accuracy" id="entry_1000011">
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" name="pageNumber" value="0">
+              <input type="hidden" name="backupCache" value="">
+              <input type="submit" name="submit" value="Submit" class='btn-lg btn-primary pull-right'>
+          </form>
+
+          <a href='https://docs.google.com/spreadsheet/viewform?formkey=dGNmNGI5TGJIRE4yelRkR0hzQXBYSnc6MQ#gid=0'>Original Form</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      function convertToDecimal(e, decimal) {
+        var value = e.value.replace(/^0+/,'').replace(/\./,'');
+        var convertedNum = parseFloat(value);
+        if (value == 0 || isNaN(value)) {
+          convertedNum = 0.00;
+        } else {
+          convertedNum = value / Math.pow(10, decimal);
+        }
+        e.value = convertedNum.toFixed(decimal);
+      }
+    </script>
+    <script type="text/javascript">
+      window.onload = getLocation();
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(setLocation);
+        }
+      }
+
+      function setLocation(position) {
+        $("input.latitude").val(position.coords.latitude);
+        $("input.longitude").val(position.coords.longitude);
+        $("input.accuracy").val(position.coords.accuracy);
+      }
+    </script>
+  </body>
+</html>
