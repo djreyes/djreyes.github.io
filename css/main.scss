@@ -13,8 +13,14 @@ $link-color: white;
 @import 'bootstrap';
 
 body {
-  background-image: url('https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg');
+  // background-image: url('https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg');
   background-size: 1280px;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.6),        
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg");
 }
 
 h1 {
