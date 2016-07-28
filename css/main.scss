@@ -9,19 +9,24 @@ $font-size-base: 18px;
 $line-height-base: 1.5;
 $link-color: white;
 
+$background-image-url: 'https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg';
+
 // installed bootstrap per http://kvurd.com/blog/my-jekyll-blog-setup-bootstrap-sass-pygments/
 @import 'bootstrap';
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg');
-  background-image: url('https://d38oh9ao6ln0iu.cloudfront.net/assets/branches.jpg');
-  background-size: 1280px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url($background-image-url) no-repeat center center fixed;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url($background-image-url);
 }
 
 h1 {
   font-family: Montserrat;
   text-transform: uppercase;
-  text-shadow: 3px 3px #333
+  text-shadow: 3px 3px #333;
   letter-spacing: 10px;
   font-weight: bold;
   font-size: 48px;
@@ -57,11 +62,5 @@ label {
   .left-border {
     border-left: 1px solid white;
     padding: 30px;
-  }
-}
-
-@media (min-width: $screen-lg-min) {
-  body {
-    background-size: 100%;
   }
 }
