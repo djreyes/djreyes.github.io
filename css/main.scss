@@ -20,7 +20,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background: url($background-image-url) no-repeat center center fixed;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url($background-image-url);
 }
 
 h1 {
