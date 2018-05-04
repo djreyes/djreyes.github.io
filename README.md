@@ -17,4 +17,4 @@ Push to the `master` branch and GitHub should take it from there.
 ## Built With
 
 * [GitHub Pages](https://pages.github.com/) - Simple hosting service
-* [Jekyll](https://jekyllrb.com/) - Simple, static site generator
+* [Jekyll](https://jekyllrb.com/) - Simple static site generator
