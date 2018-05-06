@@ -14,6 +14,12 @@ $ bundle exec jekyll serve
 
 Push to the `master` branch and GitHub should take it from there.
 
+Domain is on [Namecheap](https://namecheap.com) and is configured with DNS nameservers from [Cloudflare](https://cloudflare.com).
+
+- `A` records point to GitHub pages
+- `CNAME` for `www` points to `djreyes.github.io`
+- `MX` records point to G Suite
+
 ## Built With
 
 * [GitHub Pages](https://pages.github.com/) - Simple hosting service
