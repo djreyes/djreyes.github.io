@@ -1,6 +1,6 @@
 # Site settings
 title: Jeremy Reyes
-email: im@jeremyreyes.com
+email: hey@jeremyreyes.com
 description: > # this means to ignore newlines until "baseurl:"
   Jeremy Reyes
 baseurl: "" # the subpath of your site, e.g. /blog/
